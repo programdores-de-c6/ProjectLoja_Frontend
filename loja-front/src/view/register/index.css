@@ -1,0 +1,228 @@
+:root {
+    --margin-top: 2rem;
+  }
+  
+  .fade-enter {
+    opacity: 0;
+  }
+  
+
+  .logoCenter {
+  
+    
+    position: relative;
+  
+  
+  
+    width: 100px;
+    
+  }
+  
+  .logo-top {
+    border-radius: 50px;
+    position: relative;
+    
+    top: -70px;
+  
+    width: 100px;
+  }
+  .logo-top-icon {
+   
+    position: relative;
+    
+    top: -30px;
+  
+    
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+  
+  .form-floating>label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 0.8rem .75rem;
+    width: auto;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transform-origin: 0 0;
+  
+  }
+  
+  .form-control {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000;
+    background-color: #fff;
+  
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: .375rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+  
+  
+  
+  
+  .form-floating>.form-control:focus,
+  .form-floating>.form-control:not(:placeholder-shown),
+  .form-floating>.form-control-plaintext:focus,
+  .form-floating>.form-select {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+  }
+  
+  .form-floating>.form-control:focus~label,
+  .form-floating>.form-control:not(:placeholder-shown)~label,
+  .form-floating>.form-control-plaintext~label,
+  .form-floating>.form-select:not([value='']):valid~label,
+  .form-floating>.form-select~label {
+    font-size: 1rem;
+    opacity: 1;
+    transform: scale(1) translateY(-1.6rem) translateX(0.15rem);
+    margin-left: .5rem;
+    color: #000000;
+    
+  
+    padding: 0rem 0rem;
+  
+    height: 40%;
+  }
+  
+  
+  .input_left_color {
+    border-left: 3px solid #007bff;
+  }
+  
+  .logoLogin {
+    width: 200px;
+    position: relative;
+    top: -30px;
+    left: -15px;
+    z-index: 2;
+  
+  }
+  
+  .position {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+  }
+  
+  .newsletter {
+    box-sizing: border-box;
+    background-color: hsl(211, 100%, 50%);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0;
+    padding: 2em;
+    overflow: hidden;
+  }
+  
+  .col_log_hidden {
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  
+  .lm {
+    position: relative;
+    top: 0;
+    transition: transform 300ms, box-shadow 300ms;
+    /* Correção na transição */
+  
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-top-left-radius: 40%;
+      border-top-right-radius: 45%;
+      border-bottom-left-radius: 35%;
+      border-bottom-right-radius: 40%;
+  
+    }
+  
+    &::before {
+  
+      bottom: 40%;
+      background-image: linear-gradient(to right, #007bff, #00b1bb);
+      /* Correção na propriedade rgba() */
+      animation: waves 6s infinite linear;
+      /* Correção na declaração da animação */
+    }
+  
+    &::after {
+  
+      top: 70%;
+  
+      background-image: linear-gradient(to right, #00b1bb, #007bff);
+      animation: waves 7s infinite;
+      /* Correção na declaração da animação */
+    }
+  }
+  
+  @keyframes waves {
+  
+    /* Correção na declaração do @keyframes */
+    from {
+      transform: rotate(0);
+    }
+  
+    /* Correção na transformação */
+    to {
+      transform: rotate(270deg);
+    }
+  
+    /* Correção na transformação */
+  }
+  
+  
+  
+  .sms {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-family: Geneva, Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: .5rem;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 2;
+  }
+  
+  .smsContainner {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    z-index: 1;
+    word-wrap: break-word;
+    border-left: white solid 4px;
+  }
+  
+  
+  .container-center {
+    position: relative;
+    z-index: 1;
+  
+  }
