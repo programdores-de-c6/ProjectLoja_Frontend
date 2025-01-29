@@ -1,8 +1,14 @@
-// src/components/Menu/Menu.js
 import React from "react";
 import { Button, Nav } from "react-bootstrap";
-import { FaBars, FaHome, FaCog, FaShoppingCart, FaMoneyBillAlt, FaChartLine, FaBox, FaUsers} from "react-icons/fa";
 import {
+  FaBars,
+  FaHome,
+  FaCog,
+  FaShoppingCart,
+  FaMoneyBillAlt,
+  FaChartLine,
+  FaBox,
+  FaUsers,
   FaMapMarkerAlt,
   FaStore,
   FaTruck,
@@ -16,7 +22,7 @@ import MenuItem from "./MenuItem";
 const Menu = ({ isMenuCollapsed, toggleMenu }) => {
   return (
     <aside
-      className="bg-white shadow p-3"
+      className={`menu-container bg-white shadow p-3`}
       style={{
         width: isMenuCollapsed ? "80px" : "250px",
         transition: "width 0.3s",
@@ -24,6 +30,7 @@ const Menu = ({ isMenuCollapsed, toggleMenu }) => {
         overflowY: "auto",
       }}
     >
+      {/* Cabeçalho do Menu */}
       <div className="d-flex justify-content-between align-items-center mb-4">
         {!isMenuCollapsed && <h1 className="h4">SistemaVenda</h1>}
         <Button variant="link" onClick={toggleMenu} className="p-0">
@@ -31,14 +38,16 @@ const Menu = ({ isMenuCollapsed, toggleMenu }) => {
         </Button>
       </div>
 
+      {/* Itens do Menu */}
       <Nav className="flex-column">
         <MenuItem
-          icon={<FaHome className="me-2" />}
+          icon={<FaHome className={`menu-icon ${isMenuCollapsed ? "" : "me-2"}`} />}
           title="Dashboard"
           isMenuCollapsed={isMenuCollapsed}
         />
+
         <MenuItem
-          icon={<FaCog className="me-2" />}
+          icon={<FaCog className={`menu-icon ${isMenuCollapsed ? "" : "me-2"}`} />}
           title="Cadastro"
           subItems={[
             { icon: <FaMapMarkerAlt className="me-2" />, title: "Países", path: "/cadastro/paises" },
@@ -54,8 +63,9 @@ const Menu = ({ isMenuCollapsed, toggleMenu }) => {
           ]}
           isMenuCollapsed={isMenuCollapsed}
         />
+
         <MenuItem
-          icon={<FaShoppingCart className="me-2" />}
+          icon={<FaShoppingCart className={`menu-icon ${isMenuCollapsed ? "" : "me-2"}`} />}
           title="Operações Comerciais"
           subItems={[
             { icon: <FaShoppingCart className="me-2" />, title: "Vendas", path: "/operacoes/vendas" },
@@ -64,8 +74,9 @@ const Menu = ({ isMenuCollapsed, toggleMenu }) => {
           ]}
           isMenuCollapsed={isMenuCollapsed}
         />
+
         <MenuItem
-          icon={<FaMoneyBillAlt className="me-2" />}
+          icon={<FaMoneyBillAlt className={`menu-icon ${isMenuCollapsed ? "" : "me-2"}`} />}
           title="Despesas"
           subItems={[
             { icon: <FaMoneyBillAlt className="me-2" />, title: "Registro de Despesas", path: "/despesas/registro" },
@@ -73,8 +84,9 @@ const Menu = ({ isMenuCollapsed, toggleMenu }) => {
           ]}
           isMenuCollapsed={isMenuCollapsed}
         />
+
         <MenuItem
-          icon={<FaChartLine className="me-2" />}
+          icon={<FaChartLine className={`menu-icon ${isMenuCollapsed ? "" : "me-2"}`} />}
           title="Relatórios"
           subItems={[
             { icon: <FaChartLine className="me-2" />, title: "Vendas por Período", path: "/relatorios/vendas" },
