@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { ButtonS } from "../../component/Buttons.js/CustomButton.js";
 import { FaUserCircle } from "react-icons/fa";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from 'jwt-decode';
 import api from "../../service/Api.js";
 import { showSuccessToast, showErrorToast } from "../../component/Toast/ToastMessage.js"; // Certifique-se de ter essas funções utilitárias
 
@@ -21,8 +21,11 @@ const Login = () => {
       const response = await axios.post(`${api}/employee/login`, loginData);
       if (response.status === 200) {
         const tokenData = response.data;
-        alert(tokenData);
+        console.log(tokenData); // Substituído alert por console.log
         const decodedToken = jwtDecode(tokenData);
+        
+        console.log(decodedToken); // Imprime o token decodificado no console
+        alert(decodedToken.id); // Exibe o ID decodificado em um alerta
         localStorage.setItem('id', decodedToken.id);
         localStorage.setItem('NivelAcesso', decodedToken.NivelAcesso);
         localStorage.setItem('token', tokenData);

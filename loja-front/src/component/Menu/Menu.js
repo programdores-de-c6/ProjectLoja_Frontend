@@ -87,7 +87,7 @@ const Menu = ({ isMenuCollapsed, toggleMenu }) => {
           icon={<FaMoneyBillAlt className={`menu-icon ${isMenuCollapsed ? "" : "me-2"}`} />}
           title="Despesas"
           subItems={[
-            { icon: <FaMoneyBillAlt className="me-2" />, title: "Registro de Despesas", path: "/despesas/registro" },
+            { icon: <FaMoneyBillAlt className="me-2" />, title: " Despesas", path: "/despesas/registro" },
             { icon: <FaTags className="me-2" />, title: "Categorias", path: "/despesas/categorias" },
           ]}
           isMenuCollapsed={isMenuCollapsed}
