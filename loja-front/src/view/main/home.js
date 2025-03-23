@@ -4,9 +4,22 @@ import { FaBars, FaBox, FaUsers } from "react-icons/fa";
 import Menu from "../../component/Menu/Menu";
 import InfoCard from "../../component/InfoCard/InfoCard";
 import SalesChart from "../../component/Charts/SalesChart";
+import CategorySalesChart from "../../component/Charts/CategorySalesChart";
 import Footer from "../../component/Footer/Footer";
+import ThemeConfigurator from "../../component/ThemeConfigurator/ThemeConfigurator";
+import { makeStyles } from '@mui/styles';
 
-const Home = () => {
+const useStyles = makeStyles((theme) => ({
+  homepageContainer: {
+    backgroundColor: '#f8f9fa',
+    minHeight: '100vh',
+    padding: theme.spacing(2),
+    paddingTop: '64px',
+  },
+}));
+
+const Home = ({ configOpen, handleConfigClose }) => {
+  const classes = useStyles();
   const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
 
   const toggleMenu = () => {
@@ -14,7 +27,7 @@ const Home = () => {
   };
 
   return (
-    <div className="d-flex flex-column min-vh-100 bg-light">
+    <div className={classes.homepageContainer}>
       {/* Menu de Navegação */}
       <nav className="navbar navbar-light bg-light d-md-none">
         <Button variant="link" onClick={toggleMenu}>
@@ -29,9 +42,9 @@ const Home = () => {
         </div>
 
         {/* Conteúdo Principal */}
-        <main className="flex-grow-1 p-3 pb-5">
+        <main className="flex-grow-1 p-2 pb-5">
           {/* Cartões de Informação */}
-          <div className="row">
+          <div className="row" >
             <div className="col-12 col-md-6 col-lg-4 mb-3">
               <InfoCard icon={<FaBox />} title="Total de Vendas" value="120" bgColor="primary" />
             </div>
@@ -43,10 +56,10 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Gráfico de Vendas */}
+          {/* Gráfico de Vendas e Gráfico de Categorias de Produtos Mais Vendidas */}
           <div className="row">
-            <div className="col-12">
-              <div className="bg-white shadow-sm rounded p-3">
+            <div className="col-12 col-lg-6 mb-3">
+              <div className="bg-white shadow-sm rounded p-3" style={{ height: "300px" }}>
                 <h5 className="mb-3">Vendas Mensais</h5>
                 <SalesChart
                   data={[
@@ -62,10 +75,27 @@ const Home = () => {
                 />
               </div>
             </div>
+            <div className="col-12 col-lg-6 mb-3">
+              <div className="bg-white shadow-sm rounded p-3" style={{ height: "300px" }}>
+                <h5 className="mb-3">Categorias de Produtos Mais Vendidas</h5>
+                <CategorySalesChart
+                  data={[
+                    { category: "Eletrônicos", sales: 150 },
+                    { category: "Roupas", sales: 100 },
+                    { category: "Alimentos", sales: 200 },
+                    { category: "Móveis", sales: 80 },
+                  ]}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </main>
       </div>
-
+      <ThemeConfigurator open={configOpen} onClose={handleConfigClose} />
       {/* Footer */}
       <Footer />
     </div>

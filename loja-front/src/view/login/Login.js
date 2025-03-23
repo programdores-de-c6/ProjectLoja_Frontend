@@ -3,36 +3,55 @@ import "./index.css";
 import { Form, Col, Row, Stack, FloatingLabel, Button } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
-import { ButtonS } from "../../Componente/Buttons.js/CustomButton";
+import { ButtonS } from "../../component/Buttons.js/CustomButton.js";
 import { FaUserCircle } from "react-icons/fa";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
+import api from "../../service/Api.js";
+import { showSuccessToast, showErrorToast } from "../../component/Toast/ToastMessage.js"; // Certifique-se de ter essas funções utilitárias
+
 const Login = () => {
   const [auth, setAuth] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [load, setLoad] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!email || !password) {
-      console.log("Campos obrigatórios não preenchidos");
-      return;
+  const handleLogin = async (loginData) => {
+    try {
+      const response = await axios.post(`${api}/employee/login`, loginData);
+      if (response.status === 200) {
+        const tokenData = response.data;
+        alert(tokenData);
+        const decodedToken = jwtDecode(tokenData);
+        localStorage.setItem('id', decodedToken.id);
+        localStorage.setItem('NivelAcesso', decodedToken.NivelAcesso);
+        localStorage.setItem('token', tokenData);
+        localStorage.setItem('nome', decodedToken.nome);
+        localStorage.setItem('loja', decodedToken.loja);
+        localStorage.setItem('sessionLogId', decodedToken.sessionLogId);
+        showSuccessToast('Logado');
+        window.location.href = '/home'; // Redireciona para o menu
+      }
+    } catch (error) {
+      showErrorToast(error.response.data.mensagem);
     }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setLoad(true);
-    // Simula uma chamada de autenticação
-    setTimeout(() => {
-      setLoad(false);
-      setAuth(true);
-    }, 2000);
+    const loginData = { email, senha: password };
+    await handleLogin(loginData);
+    setLoad(false);
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100">
-      <Row className="bg-white shadow rounded" style={{ width: "35rem" }}>
-        {/* Formulário */}
+      <Row className="bg-white shadow rounded" style={{ width: "25rem", height: "30rem" }}>
         <Col className="p-4" sm={12}>
-          <div className="text-center mb-2  ">
+          <div className="text-center mb-2">
             <FaUserCircle
-              size={100}
+              size={80} // Ajuste o tamanho do ícone
               className="logo-top mx-auto text-light bg-primary rounded-circle"
             />
           </div>
@@ -72,7 +91,7 @@ const Login = () => {
             <Stack
               gap={2}
               className="col-md-8 mx-auto mb-4"
-              style={{ marginTop: "3rem" }}
+              style={{ marginTop: "2rem" }}
             >
               <ButtonS
                 className="fw-bolder"

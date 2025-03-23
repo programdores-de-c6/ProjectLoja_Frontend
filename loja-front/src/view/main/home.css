@@ -1,0 +1,12 @@
+.homepage-container {
+  background-color: #f8f9fa; /* Define a cor de fundo */
+  min-height: 100vh; /* Define a altura mínima */
+  padding: 20px; /* Define o padding */
+  padding-top: 20px; /* Adiciona um padding superior para ajustar a posição do conteúdo */
+}
+
+@media (min-width: 768px) {
+  .homepage-container {
+    padding-top: 50px; /* Adiciona um padding superior maior para telas maiores */
+  }
+}

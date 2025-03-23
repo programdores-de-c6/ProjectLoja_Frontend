@@ -1,11 +1,10 @@
 import React from "react";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
@@ -15,23 +14,22 @@ import {
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend
 );
 
-const SalesChart = ({ data, options }) => {
+const CategorySalesChart = ({ data, options }) => {
   const chartData = {
-    labels: data.map((item) => item.name),
+    labels: data.map((item) => item.category),
     datasets: [
       {
         label: "Vendas",
         data: data.map((item) => item.sales),
-        fill: false,
         backgroundColor: "rgba(75,192,192,0.4)",
         borderColor: "rgba(75,192,192,1)",
+        borderWidth: 1,
       },
     ],
   };
@@ -45,7 +43,7 @@ const SalesChart = ({ data, options }) => {
     },
   };
 
-  return <Line data={chartData} options={chartOptions} height={200} width={400} />;
+  return <Bar data={chartData} options={chartOptions} height={200} width={400} />;
 };
 
-export default SalesChart;
+export default CategorySalesChart;

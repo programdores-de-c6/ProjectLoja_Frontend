@@ -1,3 +1,10 @@
+:root {
+  --menu-bg-color: #ffffff;
+  --footer-bg-color: #ffffff;
+  --footer-text-color: #333333;
+  --header-bg-color: #ffffff;
+}
+
 .App {
   text-align: center;
 }
