@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulbucus ibis - Garça-vaqueira</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #4a8b2c;
+            --secondary-color: #e8f5e9;
+            --accent-color: #2c5e1a;
+            --text-color: #333;
+            --light-color: #f9f9f9;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .intro-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
+        }
+
+        .intro-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .intro-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .habitat {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .habitat-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .habitat-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .habitat-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .habitat-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .gallery {
+            margin-bottom: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 200px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .caption {
+            transform: translateY(0);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .conservation {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .scientific-name {
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background-color: rgba(74, 139, 44, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .intro,
+            .habitat-content {
+                flex-direction: column;
+            }
+
+            .intro-text {
+                padding-right: 0;
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="intro">
+            <div class="intro-text">
+                <h2>Garça-vaqueira: Uma ave cosmopolita</h2>
+                <p>A <span class="scientific-name">Bubulcus ibis</span>, conhecida popularmente como garça-vaqueira, é
+                    uma espécie de ave da família Ardeidae. Originária da África e da Ásia, expandiu sua distribuição
+                    naturalmente e através de introduções pelo homem, estando hoje presente em quase todos os
+                    continentes.</p>
+                <p>No Brasil, a garça-vaqueira chegou na década de 1960, provavelmente proveniente da África, e desde
+                    então se espalhou por todo o território nacional, adaptando-se perfeitamente aos diferentes
+                    ecossistemas.</p>
+                <p>O nome "vaqueira" vem de seu hábito de seguir o gado e outros grandes mamíferos para capturar os
+                    insetos espantados por eles durante o pastoreio.</p>
+            </div>
+            <div class="intro-image"> <img
+                    src="https://images.unsplash.com/photo-1596273315327-5f059a6d5c92?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                    alt="Garça-vaqueira em um campo">
+                <p>Garça-vaqueira em seu habitat natural</p>
+            </div>
+        </section>
+        <section class="caracteristicas">
+            <h2>Características Principais</h2>
+            <div class="info-grid">
+                <div class="info-card"> <i class="fas fa-feather-alt"></i>
+                    <h3>Morfologia</h3>
+                    <p>A garça-vaqueira é uma ave de porte médio, com cerca de 46-56 cm de comprimento e envergadura de
+                        88-96 cm. Sua plumagem é predominantemente branca, mas durante a época reprodutiva desenvolve
+                        penas alaranjadas no dorso, peito e cabeça.</p>
+                </div>
+                <div class="info-card"> <i class="fas fa-utensils"></i>
+                    <h3>Alimentação</h3>
+                    <p>Sua dieta é baseada principalmente em insetos, especialmente gafanhotos, cigarrinhas, besouros e
+                        moscas. Também consome aranhas, pequenos vertebrados como sapos e lagartos, e ocasionalmente
+                        peixes.</p>
+                </div>
+                <div class="info-card"> <i class="fas fa-bullseye"></i>
+                    <h3>Comportamento</h3>
+                    <p>São aves gregárias, vivendo em bandos que podem chegar a centenas de indivíduos. Têm hábitos
+                        diurnos e são frequentemente vistas seguindo tratores durante o preparo da terra ou animais em
+                        pastagens.</p>
+                </div>
+            </div>
+        </section>
+        <section class="habitat">
+            <h2>Habitat e Distribuição</h2>
+            <div class="habitat-content">
+                <div class="habitat-text">
+                    <p>A garça-vaqueira é uma espécie extremamente adaptável, podendo ser encontrada em uma grande
+                        variedade de habitats, desde campos abertos, pastagens, áreas agrícolas, até margens de rios,
+                        lagos e pantanais.</p>
+                    <p>No Brasil, está presente em todos os estados, do extremo norte ao sul do país. Sua grande
+                        capacidade de adaptação a ambientes alterados pelo homem explica seu sucesso na colonização do
+                        território brasileiro.</p>
+                    <p>Elas nidificam em colônias mistas com outras espécies de garças, geralmente em árvores próximas a
+                        corpos d'água. Os ninhos são plataformas feitas de gravetos, onde a fêmea põe de 3 a 5 ovos de
+                        cor azulada.</p>
+                </div>
+                <div class="habitat-image"> <img
+                        src="https://images.unsplash.com/photo-1550853024-5cb92e5c042a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Habitat da garça-vaqueira">
+                    <p>Ambiente típico onde a garça-vaqueira pode ser encontrada</p>
+                </div>
+            </div>
+        </section>
+        <section class="gallery">
+            <h2>Galeria de Imagens</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"> <img
+                        src="https://images.unsplash.com/photo-1549608276-578c80e8940b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        alt="Garça-vaqueira em voo">
+                    <div class="caption">Garça-vaqueira em voo</div>
+                </div>
+                <div class="gallery-item"> <img
+                        src="https://images.unsplash.com/photo-1572816703439-d8b34c4dc93f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        alt="Garça-vaqueira com gado">
+                    <div class="caption">Seguindo o gado no pasto</div>
+                </div>
+                <div class="gallery-item"> <img
+                        src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        alt="Garça-vaqueira na água">
+                    <div class="caption">À beira de um lago</div>
+                </div>
+                <div class="gallery-item"> <img
+                        src="https://images.unsplash.com/photo-1551085254-e96b210db58a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        alt="Garça-vaqueira em plumagem nupcial">
+                    <div class="caption">Plumagem nupcial alaranjada</div>
+                </div>
+            </div>
+        </section>
+        <section class="conservation">
+            <h2>Conservação e Importância Ecológica</h2>
+            <p>A garça-vaqueira está classificada como <span class="highlight">"Pouco Preocupante"</span> na Lista
+                Vermelha da IUCN devido à sua ampla distribuição e populações estáveis. Na verdade, em algumas regiões
+                suas populações têm aumentado consideravelmente.</p>
+            <p>Esta espécie desempenha um importante papel ecológico no controle de populações de insetos, especialmente
+                em áreas agrícolas, onde ajuda a reduzir pragas que afetam as culturas. Estudos indicam que uma única
+                garça-vaqueira pode consumir mais de 100 gafanhotos por dia.</p>
+            <p>No Brasil, a garça-vaqueira não é considerada uma espécie ameaçada, mas como todas as aves silvestres, é
+                protegida pela Lei de Proteção à Fauna (Lei nº 5.197/67).</p>
+            <p>Sua adaptabilidade a ambientes alterados pelo homem é notável, o que a torna um exemplo interessante de
+                sucesso biológico em um mundo cada vez mais antropizado.</p>
+        </section>
+    </div>
+</body>
+
+</html>

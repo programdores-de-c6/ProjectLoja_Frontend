@@ -1,0 +1,22 @@
+.table-selected {
+  background-color: #cfe2ff !important;
+  font-weight: bold;
+}
+
+.btn-finalizar-pos {
+  font-size: 1.25rem;
+  padding: 10px 0;
+}
+
+.pos-header {
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 8px;
+}
+
+input:focus {
+  outline: 2px solid #0d6efd;
+  box-shadow: 0 0 3px #0d6efd;
+}
+input.form-control {
+  font-size: 1.25rem;
+}

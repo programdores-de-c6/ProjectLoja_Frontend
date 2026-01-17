@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { FaBars, FaBox, FaUsers } from "react-icons/fa";
-import Menu from "../../component/Menu/Menu";
+//import Menu from "../../component/Menu/Menu";
 import InfoCard from "../../component/InfoCard/InfoCard";
 import SalesChart from "../../component/Charts/SalesChart";
 import CategorySalesChart from "../../component/Charts/CategorySalesChart";
-import Footer from "../../component/Footer/Footer";
+//import Footer from "../../component/Footer/Footer";
 import ThemeConfigurator from "../../component/ThemeConfigurator/ThemeConfigurator";
 import { makeStyles } from '@mui/styles';
 
@@ -38,7 +38,7 @@ const Home = ({ configOpen, handleConfigClose }) => {
       <div className="d-flex flex-grow-1">
         {/* Menu Lateral (colapsado em mobile) */}
         <div className={`d-md-block ${isMenuCollapsed ? "d-none" : "d-block"}`}>
-          <Menu isMenuCollapsed={isMenuCollapsed} toggleMenu={toggleMenu} />
+         {/*<Menu isMenuCollapsed={isMenuCollapsed} toggleMenu={toggleMenu} />*/}
         </div>
 
         {/* Conteúdo Principal */}
@@ -97,7 +97,7 @@ const Home = ({ configOpen, handleConfigClose }) => {
       </div>
       <ThemeConfigurator open={configOpen} onClose={handleConfigClose} />
       {/* Footer */}
-      <Footer />
+      {/*<Footer />*/}
     </div>
   );
 };
