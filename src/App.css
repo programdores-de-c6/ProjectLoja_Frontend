@@ -1,0 +1,91 @@
+/* ====================================================
+   ESTILOS EXISTENTES (BOILERPLATE)
+   ==================================================== */
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* ====================================================
+   ESTILOS DE IMPRESSÃO (RECIBO PDV) 
+   ==================================================== */
+
+@media print {
+  /* 1. Esconde TUDO o que está no ecrã (Menus, Sidebar, Botões, Header) */
+  body * {
+    visibility: hidden;
+  }
+
+  /* 2. Mostra apenas o componente do Recibo e os seus conteúdos */
+  #print-receipt, 
+  #print-receipt * {
+    visibility: visible;
+  }
+
+  /* 3. Posiciona o recibo no topo da folha para a impressora térmica */
+  #print-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm; /* Largura padrão de impressoras de talão */
+    margin: 0;
+    padding: 10px;
+    background-color: white !important;
+    display: block !important;
+  }
+
+  /* 4. Remove cabeçalhos e rodapés automáticos do navegador (URL, Data, etc.) */
+  @page {
+    margin: 0;
+    size: auto;
+  }
+
+  /* Garante que o fundo seja branco para economizar tinta */
+  html, body {
+    background-color: white !important;
+  }
+}
+
+/* Esconde o recibo no ecrã normal para não estragar o seu layout */
+#print-receipt {
+  display: none;
+}
